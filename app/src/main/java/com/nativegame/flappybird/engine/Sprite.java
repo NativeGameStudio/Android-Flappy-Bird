@@ -11,31 +11,28 @@ import android.graphics.drawable.Drawable;
 
 import com.nativegame.flappybird.game.sound.SoundManager;
 
-/**
- * Created by Oscar Liang on 2022/06/09
- */
-
 public abstract class Sprite extends GameObject {
 
     private static final boolean DEBUG_MODE = false;
 
-    protected int mScreenWidth;
-    protected int mScreenHeight;
-    protected int mWidth;
-    protected int mHeight;
+    protected final int mScreenWidth;
+    protected final int mScreenHeight;
+    protected final int mWidth;
+    protected final int mHeight;
     protected float mX;
     protected float mY;
     public float mRotation;
     public float mScale = 1;
     public int mAlpha = 255;
-    public final Rect mBoundingRect = new Rect(-1, -1, -1, -1);
 
-    protected final float mPixelFactor;
     protected Bitmap mBitmap;
+    protected final float mPixelFactor;
     private final Matrix mMatrix = new Matrix();
     private final Paint mPaint = new Paint();
 
     protected final SoundManager mSoundManager;
+
+    public final Rect mBoundingRect = new Rect(-1, -1, -1, -1);
 
     protected Sprite(GameEngine gameEngine, int drawableRes) {
         Drawable drawable = gameEngine.getContext().getResources().getDrawable(drawableRes);
